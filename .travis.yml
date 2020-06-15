@@ -1,0 +1,8 @@
+language: generic
+sudo: required
+services:
+    - docker
+before_install:
+    - docker build -t ahmadawada/docker-react -f dockerfile.dev .
+script:
+    - docker run -e CI=true ahmadawada/docker-react npm run test
